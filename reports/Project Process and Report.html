@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Analytics Dashboard Project Report</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+      /* Document Setup strictly following constraints */
+      body {
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        color: #000000;
+        line-height: 1.6;
+        background-color: #ffffff;
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+      }
+
+      /* Typography Overrides for Document Look */
+      h1 {
+        font-size: 24pt;
+        text-align: center;
+        color: #1a237e;
+        text-transform: uppercase;
+        margin-bottom: 0.5em;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #1a237e;
+      }
+
+      h2 {
+        font-size: 16pt;
+        color: #2c3e50;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+        margin-top: 35px;
+        margin-bottom: 5px;
+      }
+
+      h3 {
+        font-size: 13pt;
+        color: #444;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 11pt;
+        text-align: justify;
+        margin-bottom: 1em;
+      }
+
+      /* List Styling */
+      ul,
+      ol {
+        margin-left: 25px;
+        margin-bottom: 1em;
+      }
+
+      li {
+        font-size: 11pt;
+        margin-bottom: 5px;
+        padding-left: 5px;
+      }
+
+      /* Table Styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 10pt;
+      }
+
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background-color: #f0f2f5;
+        font-weight: bold;
+      }
+
+      /* Portfolio Header Info */
+      .portfolio-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .portfolio-meta {
+        font-size: 11pt;
+        color: #666;
+        margin-top: 10px;
+      }
+
+      /* Utility classes for portfolio presentation */
+      .skill-tag {
+        display: inline-block;
+        border: 1px solid #666;
+        padding: 2px 8px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-size: 9pt;
+        border-radius: 3px;
+        background-color: #f8f9fa;
+      }
+
+      /* Clear Pico CSS defaults that conflict with document style */
+      article,
+      aside,
+      section,
+      header,
+      footer {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body style="">
+    <!-- Document Header -->
+    <header class="portfolio-header">
+      <h1>Weather Analytics &amp; Forecasting Dashboard</h1>
+    </header>
+
+    <!-- 1. Project Overview -->
+    <section>
+      <h2>1. Project Overview</h2>
+      <p>
+        In this individual project, I designed and developed a comprehensive "Weather Analytics Dashboard" using Power
+        BI. The goal was to create a high-fidelity, interactive visualization tool capable of monitoring real-time
+        weather conditions, tracking atmospheric quality, and forecasting trends for multiple geographic locations
+        including Bangalore, Chennai, and Ajmer.
+      </p>
+      <p>
+        The dashboard serves as a central hub for meteorological data, presenting complex metrics such as UV index, air
+        quality components (PM10, NO2, SO2), and precipitation probability in a user-friendly, visually engaging
+        interface. It demonstrates the ability to transform raw data into actionable insights through effective visual
+        storytelling.
+      </p>
+    </section>
+
+    <!-- 2. Objectives -->
+    <section>
+      <h2>2. Objectives</h2>
+      <p>The primary objectives of this portfolio project were to:</p>
+      <ul>
+        <li>
+          <strong>Design an Interactive Interface:</strong> Create a dashboard that allows users to seamlessly switch
+          between different city views (Bangalore, Chennai, Ajmer).
+        </li>
+        <li>
+          <strong>Visualize Multi-Dimensional Data:</strong> Effectively display varying data types—including
+          temperature trends, percentage-based humidity, and air quality indices—on a single screen without clutter.
+        </li>
+        <li>
+          <strong>Implement Dynamic Theming:</strong> Showcase design versatility by implementing context-aware color
+          themes (e.g., Cool Blue for standard days, Warm Orange for sunny/high-temperature scenarios).
+        </li>
+        <li>
+          <strong>Demonstrate Power BI Proficiency:</strong> Utilize advanced DAX measures, custom tooltips, and data
+          modeling techniques to ensure accurate reporting.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 3. Data Sources & Scope -->
+    <section>
+      <h2>3. Data Sources &amp; Scope</h2>
+      <p>
+        The dataset utilized for this project simulates a live connection to meteorological services. It encompasses
+        structured data points for multiple Indian cities over a rolling 7-day period.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 30%">Data Category</th>
+            <th style="width: 70%">Metrics Tracked</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Core Weather</strong></td>
+            <td>Temperature (°C), Condition (Partly Cloudy, Sunny), Last Updated Timestamp.</td>
+          </tr>
+          <tr>
+            <td><strong>Atmospherics</strong></td>
+            <td>Humidity (%), Wind Speed (Kph), Visibility (KM), Pressure (mb), UV Index.</td>
+          </tr>
+          <tr>
+            <td><strong>Air Quality</strong></td>
+            <td>
+              Particulate Matter (PM10, PM2.5), Ozone (O3), Sulfur Dioxide (SO2), Carbon Monoxide (CO), Nitrogen Dioxide
+              (NO2).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Forecast</strong></td>
+            <td>7-Day Temperature Trends, Rain Probability (%), Sunrise/Sunset times.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 4. Dashboard Features -->
+    <section>
+      <h2>4. Dashboard Features</h2>
+      <p>
+        The solution features a modular layout designed for clarity and rapid information consumption. Key components
+        include:
+      </p>
+
+      <h3>4.1 Location &amp; Status Card</h3>
+      <p>
+        A prominent header card displays the selected city, current date, and a large typographic representation of the
+        current temperature. Visual icons indicate the general weather condition (e.g., "Partly Cloudy").
+      </p>
+
+      <h3>4.2 Trend Forecasting</h3>
+      <p>
+        A spline area chart visualizes the temperature forecast for the upcoming week. This allows users to instantly
+        identify warming or cooling trends. Data points are labeled clearly (e.g., "23.1°C") to provide precise values
+        at a glance.
+      </p>
+
+      <h3>4.3 Air Quality Overview</h3>
+      <p>
+        A dedicated section breaks down the Air Quality Index (AQI). It utilizes a radial gauge for the overall score
+        (e.g., "Good 17") and detailed KPI cards for specific pollutants like PM10 and NO2. This provides a granular
+        view of environmental health.
+      </p>
+
+      <h3>4.4 Environmental Metrics Grid</h3>
+      <p>
+        Secondary metrics such as Humidity, Visibility, and Wind Speed are organized in a uniform grid. Each metric is
+        paired with a relevant icon to improve scanability and user recognition.
+      </p>
+
+      <h3>4.5 Dynamic Visual Themes</h3>
+      <p>To enhance user experience, two distinct visual themes were developed:</p>
+      <ul>
+        <li>
+          <strong>Deep Blue Theme:</strong> Used for Ajmer and Bangalore views, conveying a clean, modern, and
+          professional aesthetic suitable for standard reporting.
+        </li>
+        <li>
+          <strong>Warm Coral/Orange Theme:</strong> Applied to the Chennai view, reflecting the warmer climate and
+          providing visual variety.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 5. Technical Implementation -->
+    <section>
+      <h2>5. Technical Implementation</h2>
+      <p>This project leveraged several technical features within Power BI:</p>
+      <ul>
+        <li>
+          <strong>Data Modeling:</strong> Created a star schema connecting the Fact_Weather table with Dim_City and
+          Dim_Date tables to facilitate accurate filtering.
+        </li>
+        <li>
+          <strong>DAX Measures:</strong> Wrote complex DAX formulas to calculate averages, format timestamps dynamically
+          (e.g., "Last Updated, 18 Jun"), and determine the "Chances of Rain" percentages.
+        </li>
+        <li>
+          <strong>Custom Backgrounds:</strong> Designed custom background layouts using Figma and imported them into
+          Power BI to achieve the "glassmorphism" card effect that is not native to standard visuals.
+        </li>
+        <li>
+          <strong>Bookmark Navigation:</strong> Implemented bookmarks and selection pane logic to toggle between
+          different city views and manage the visibility of location-specific data.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 6. Key Insights -->
+    <section>
+      <h2>6. Key Insights Derived</h2>
+      <p>Through the visualization of this data, several insights become immediately apparent:</p>
+      <ol>
+        <li>
+          <strong>Temperature Variability:</strong> Ajmer shows a significantly higher peak temperature (32.8°C)
+          compared to Bangalore (23.1°C), highlighting regional climatic diversity.
+        </li>
+        <li>
+          <strong>Pollution Correlation:</strong> Areas with higher industrial activity (simulated) showed spikes in
+          PM10 and NO2 levels, visually flagged in the Air Quality Overview.
+        </li>
+        <li>
+          <strong>Diurnal Cycles:</strong> The "Sunrise and Sunset" module provides critical daylight context, essential
+          for planning outdoor activities or logistics.
+        </li>
+      </ol>
+    </section>
+
+    <!-- 7. Challenges and Solutions -->
+    <section>
+      <h2>7. Challenges and Solutions</h2>
+
+      <h3>Challenge 1: Visual Consistency Across Themes</h3>
+      <p>
+        <strong>Issue:</strong> Changing color palettes from Blue to Orange often resulted in poor contrast for text
+        elements.
+        <br>
+        <strong>Solution:</strong> I established a standardized typography hierarchy using white text for dark
+        backgrounds and adjusted opacity levels to ensure readability regardless of the background gradient.
+      </p>
+
+      <h3>Challenge 2: displaying Dense Data</h3>
+      <p>
+        <strong>Issue:</strong> Fitting 15+ metrics (Wind, Rain, AQI, Forecast) onto a single screen without
+        overwhelming the user.
+        <br>
+        <strong>Solution:</strong> I adopted a "Card-based" layout. Grouping related metrics (e.g., all Air Quality
+        metrics in one black container) created visual separation and reduced cognitive load.
+      </p>
+    </section>
+
+    <!-- 8. Skills Demonstrated -->
+    <section>
+      <h2>8. Skills Demonstrated</h2>
+      <p>This project highlights my proficiency in the following areas:</p>
+      <div>
+        <span class="skill-tag">Power BI Desktop</span>
+        <span class="skill-tag">DAX (Data Analysis Expressions)</span>
+        <span class="skill-tag">Data Modeling</span>
+        <span class="skill-tag">UI/UX Design</span>
+        <span class="skill-tag">Data Storytelling</span>
+        <span class="skill-tag">ETL Processes</span>
+        <span class="skill-tag">Dashboard Optimization</span>
+      </div>
+    </section>
+
+    <!-- 9. Conclusion -->
+    <section>
+      <h2>9. Conclusion</h2>
+      <p>
+        The Weather Analytics Dashboard project stands as a testament to my ability to merge technical data engineering
+        skills with creative user interface design. By transforming raw meteorological numbers into an intuitive,
+        aesthetically pleasing, and interactive experience, I have demonstrated the value of effective business
+        intelligence.
+      </p>
+      <p>
+        This tool not only answers "what is the weather?" but provides a deep dive into environmental conditions, aiding
+        in better decision-making. It represents a complete lifecycle of data visualization development, from
+        requirement gathering to final deployment.
+      </p>
+    </section>
+  
+
+</body></html>

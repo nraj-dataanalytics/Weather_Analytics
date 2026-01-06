@@ -1,0 +1,30 @@
+-- Current Metrics
+Current Temperature = MAX(Current[Temperature])
+Humidity (%) = MAX(Current[Humidity])
+Wind Speed (Kph) = MAX(Current[WindSpeed])
+Visibility (KM) = MAX(Current[Visibility])
+Pressure (mb) = MAX(Current[Pressure])
+UV Index = MAX(Current[UVIndex])
+
+-- AQI
+AQI Score = MAX(Current[AQI])
+AQI Status = SELECTEDVALUE(Current[AQI_Status])
+
+PM10 = MAX(Current[PM10])
+PM2.5 = MAX(Current[PM25])
+O3 = MAX(Current[O3])
+SO2 = MAX(Current[SO2])
+CO = MAX(Current[CO])
+NO2 = MAX(Current[NO2])
+
+-- Sunrise / Sunset
+Sunrise Time = SELECTEDVALUE(MasterReport[Sunrise])
+Sunset Time = SELECTEDVALUE(MasterReport[Sunset])
+
+-- Forecast
+Avg Daily Temp = AVERAGE(Forcast_Day[Temperature])
+Rain Chance (%) = AVERAGE(Forcast_Day[RainChance])
+
+-- Labels
+Temp Label = FORMAT([Current Temperature], "0.0") & " °C"
+Last Updated = "Last Updated, " & FORMAT(MAX(Current[LastUpdated]), "dd MMM")
